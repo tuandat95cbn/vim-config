@@ -1,3 +1,4 @@
+let g:polyglot_disabled = ['jsx', 'tsx', 'js', 'ts']
 call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'editorconfig/editorconfig-vim'
@@ -31,12 +32,18 @@ Plug 'Yggdroot/indentLine'
 Plug 'atelierbram/Base2Tone-vim'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'davidhalter/jedi-vim'
+Plug 'puremourning/vimspector'
 call plug#end()
 
 filetype plugin indent on
 
 "Todo file
 autocmd BufNewFile,BufRead *.todo set syntax=todo
+
+" Vim spector
+let g:vimspector_enable_mappings = 'HUMAN'
+"packadd! vimspector
 
 " Auto remove trailing spaces
 autocmd BufWritePre * %s/\s\+$//e
@@ -90,7 +97,6 @@ call esearch#out#win#map('<Enter>', 'tab')
 
 " JS config
 let g:javascript_plugin_jsdoc = 1
-let g:polyglot_disabled = ['jsx', 'tsx', 'js', 'ts']
 let g:vim_jsx_pretty_template_tags = ['html', 'jsx', 'tsx']
 
 " Custom icon for coc.nvim statusline
@@ -133,7 +139,8 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
 
-set listchars=tab:>·,trail:~,extends:>,precedes:<
+"set listchars=tab:>·,trail:~,extends:>,precedes:<
+set listchars=tab:--,trail:~,extends:>,precedes:<
 set list
 
 set backspace=eol,start,indent
@@ -368,6 +375,8 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+nmap <silent> gvy :call CocAction('jumpDefinition', 'vsplit') <CR>
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
