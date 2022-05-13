@@ -43,6 +43,9 @@ autocmd BufNewFile,BufRead *.todo set syntax=todo
 
 " Vim spector
 let g:vimspector_enable_mappings = 'HUMAN'
+let g:coc_global_extensions = [
+  \ 'coc-tsserver'
+  \ ]
 "packadd! vimspector
 
 " Auto remove trailing spaces
@@ -114,8 +117,8 @@ nnoremap <Down> :echoe "Use j"<CR>
 nnoremap <ESC><ESC> :nohlsearch<CR>
 nnoremap L l
 nnoremap H h
-nnoremap l w
-nnoremap h b
+" nnoremap l w
+" nnoremap h b
 
 vnoremap p "_dP
 
@@ -254,10 +257,10 @@ nnoremap <Leader>at :call FloatTerm()<CR>
 " Open tig, yes TIG, A FLOATING TIGGGG!!!!!!
 nnoremap <Leader>ag :call FloatTerm('"tig"')<CR>
 
-nnoremap <silent> <Leader>pf :Files<CR>
-nnoremap <silent> <Leader>pt :Buffers<CR>
-nnoremap <silent> <Leader>pb :Buffers<CR>
-nnoremap <silent> <Leader>pr :History<CR>
+nnoremap <silent> <Leader>bf :Files<CR>
+nnoremap <silent> <Leader>bt :Buffers<CR>
+nnoremap <silent> <Leader>bb :Buffers<CR>
+nnoremap <silent> <Leader>br :History<CR>
 nnoremap <silent> <c-\> :call esearch#init()<CR>
 
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
@@ -413,7 +416,8 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <leader>ar  <Plug>(coc-rename)
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
-
+" ad OR command for organizeImport
+command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 function! StatusDiagnostic() abort
   let info = get(b:, 'coc_diagnostic_info', {})
   if empty(info) | return '' | endif

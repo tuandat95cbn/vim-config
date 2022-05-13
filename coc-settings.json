@@ -1,9 +1,9 @@
 {
   "coc.preferences.useQuickfixForLocations": true,
-  "diagnostic.warningSign": "",
-  "diagnostic.errorSign": "",
-  "diagnostic.infoSign": "",
-  "diagnostic.hintSign": "ﯦ",
+  "diagnostic.warningSign": "w",
+  "diagnostic.errorSign": "e",
+  "diagnostic.infoSign": "i",
+  "diagnostic.hintSign": "h",
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",
     "variable": "\ue79b",
@@ -33,5 +33,6 @@
   },
   "typescript.showUnused": true,
   "javascript.showUnused": true,
-  "java.trace.server": "verbose"
+  "java.trace.server": "verbose",
+  "tsserver.trace.server": "verbose"
 }
