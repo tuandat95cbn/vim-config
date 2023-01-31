@@ -34,6 +34,7 @@ Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'davidhalter/jedi-vim'
 Plug 'puremourning/vimspector'
+Plug 'brooth/far.vim'
 call plug#end()
 
 filetype plugin indent on
@@ -135,8 +136,9 @@ nnoremap <C-k> <C-u>
 nnoremap <C-j> <C-d>
 
 set background=dark
-" let g:quantum_black=1
+let g:quantum_black=1
 colo bright-quantum
+
 
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
@@ -380,6 +382,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 nmap <silent> gvy :call CocAction('jumpDefinition', 'vsplit') <CR>
+nmap <silent> gty :call CocAction('jumpDefinition', 'tabe') <CR>
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -438,7 +441,11 @@ set statusline^=%{coc#status()}%{StatusDiagnostic()}
 let g:nerdtree_sync_cursorline = 1
 let g:NERDTreeHighlightCursorline = 1
 
-" Multiple Cursor
+" Easy motion config
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+nmap , <Plug>(easymotion-overwin-f)
+" nmap , <Plug>(easymotion-overwin-f2)"
+"" Multiple Cursor
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_start_word_key      = '<C-d>'
 let g:multi_cursor_select_all_word_key = '<C-L>'

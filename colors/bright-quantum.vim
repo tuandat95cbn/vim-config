@@ -20,6 +20,7 @@ let s:gray2     = g:quantum_black ? '#292929' : '#2c3a41'
 let s:gray3     = g:quantum_black ? '#474646' : '#425762'
 let s:gray4     = g:quantum_black ? '#6a6c6c' : '#63778b'
 let s:gray5     = g:quantum_black ? '#e0e2e4' : '#eaedf0'
+let s:line     = g:quantum_black ? '#8494ad' : '#8494ad'
 let s:red       = '#dd7186'
 let s:green     = '#87bb7c'
 let s:yellow    = '#d5b875'
@@ -50,7 +51,7 @@ endfun
 call s:HL('ColorColumn',                    '',         s:gray2,    '')
 call s:HL('Cursor',                         s:gray2,    s:gray5,    '')
 call s:HL('CursorColumn',                   '',         s:gray2,    '')
-call s:HL('CursorLine',                     '',         s:gray2,    'none')
+call s:HL('CursorLine',                     '',         s:line,    'none')
 call s:HL('CursorLineNr',                   s:cyan,     s:gray2,    'none')
 call s:HL('Directory',                      s:blue,     '',         '')
 call s:HL('DiffAdd',                        s:green,    s:gray2,    'none')
